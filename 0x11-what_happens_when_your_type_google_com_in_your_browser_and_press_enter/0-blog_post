@@ -1,0 +1,59 @@
+
+My blog post URL: https://ln.run/AHE43
+Behind the Scenes: What Happens When You Enter a URL(ww.google.com)
+
+Ever typed a web address into your browser and wondered what happens behind the scenes? Let's unfolds from the moment you press Enter.
+
+
+
+DNS LOOKUP:
+
+Your browser doesn't understand human readable domain names like "www.google.com" It needs an address it can understand – an IP address. This is where the DNS (Domain Name System) comes in. It translatins "www.google.com" into its corresponding IP address, say, 142.250.181.196 (it almost looks like this example).
+
+
+
+TCP/IP: THE LANGUAGE OF THE WEB:
+
+Now that your browser knows the IP address, it's time to talk. It uses the TCP/IP (Transmission Control Protocol/Internet Protocol), the language of the internet, to establish a connection with the web server. Imagine TCP/IP as a postman, ensuring each data packet reaches its destination and is reassembled correctly.
+
+
+
+FIREWALL: THE GATEKEEPER
+
+your request might encounter a firewall. This security guard acts as a checkpoint, filtering incoming and outgoing traffic based on pre-defined rules. It ensures only authorized traffic reaches the server.
+
+
+
+THE ENCRYPTION: HTTPS/SSL
+
+When you enter "https" at the beginning of a URL, you're initiating a secure communication. This interacts between your browser and the server using HTTPS (Hypertext Transfer Protocol Secure) and its underlying technology, SSL (Secure Sockets Layer). This creates an encrypted tunnel, scrambling the data exchanged, protecting your sensitive information from prying eyes.
+
+
+
+LOAD BALANCING
+
+Large websites often have multiple web servers to handle high traffic. A load balancer acts as a traffic director, distributing incoming requests evenly across these servers, ensuring smooth performance and preventing any single server from overloading.
+
+
+
+WEB SERVER: THE INFORMATION PROVIDER
+
+The request finally reaches the web server. This is the software responsible for understanding your request (e.g., displaying a webpage) and retrieving the necessary information. It fetches the relevant HTML files, images, and other resources from its storage.
+
+
+
+APPLICATION SERVER: THE ENGINE BEHIND THE SCENES
+
+For dynamic websites, the web server might hand over the request to an application server. This server acts as the brain, processing data from databases and generating customized webpages based on your request. It's the part that tailors your experience based on your login or search query.
+
+
+
+DATABASE: THE INFORMATION VAULT
+
+Many websites rely on databases to store information. The application server might interact with a database to retrieve data relevant to your request. This could be product information for an online store or your personal profile on a social media platform.
+
+
+
+RENDERING THE PAGE: BRINGING IT ALL TOGETHER
+
+Once the web server gathers all the necessary resources, it sends them back to your browser. Your browser interprets the HTML code, fetches images and other elements, and finally renders the webpage you see on your screen.
