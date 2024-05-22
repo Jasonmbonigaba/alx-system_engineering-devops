@@ -1,14 +1,50 @@
 #!/usr/bin/python3
-"""Returns to-do list information for a given employee ID."""
+"""
+This module fetches data from the JSONPlaceholder API.
+It retrieves the tasks for a specific user and prints
+the completed tasks.
+"""
+
 import requests
-import sys
+from sys import argv
+
+
+def print_completed_tasks(employee_ID):
+    """
+    Fetches data from the JSONPlaceholder API for a specific user.
+    Prints the user's completed tasks.
+    """
+
+    # Get the employee's details
+    name_res = requests.get(
+        "https://jsonplaceholder.typicode.com/users/{}".
+        format(employee_ID))
+    name = name_res.json().get('name')  # Use get to access
+    # dictionary value
+
+    # Get the employee's tasks
+    tasks_res = requests.get(
+        "https://jsonplaceholder.typicode.com/todos?userId={}".
+        format(employee_ID))
+    tasks = tasks_res.json()
+
+    # Calculate the number of done tasks and the total number of tasks
+    # Use get to access dictionary value
+    done_tasks = [task for task in tasks if task.get('completed')]
+    number_of_done_tasks = len(done_tasks)
+    total_number_of_tasks = len(tasks)
+
+    print("Employee {} is done with tasks({}/{}):".
+          format(name,
+                 number_of_done_tasks, total_number_of_tasks))
+    for task in done_tasks:
+        # Use get to access dictionary value
+        print("\t {}".
+              format(task.get('title')))
+
 
 if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com/"
-    user = requests.get(url + "users/{}".format(sys.argv[1])).json()
-    todos = requests.get(url + "todos", params={"userId": sys.argv[1]}).json()
-
-    completed = [t.get("title") for t in todos if t.get("completed") is True]
-    print("Employee {} is done with tasks({}/{TOTAL_NUMBER_OF_TASKS}):".format(
-        user.get("name"), len(completed), len(todos)))
-    [print("\t {}".format(c)) for c in completed]
+    # Only run the following code when the script is executed directly
+    # (not imported)
+    employee_ID = argv[1]
+    print_completed_tasks(employee_ID)
